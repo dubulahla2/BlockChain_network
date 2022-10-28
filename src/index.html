@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Healthcare App</title>
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <img src="./Images/logo.png" alt="">
+    <h1>FABRIC HEALTHCARE NETWORK</h1>
+  </div>
+  <h4>Public Id : <span class="white"><span id="SenderBalance"></span> </h4>
+ 
+  
+
+  <div class="btn-group" id="form-selector" align="left">
+    <div><button type="button" class="btn1 btn-selector active" id="sign-up-btn">Patient</button></div>
+
+
+    <br>
+    <div><button type="button" class="btn1 btn-selector" id="log-in-btn">Doctor</button></div>
+    <br>
+    <div><button type="button" class="btn1 btn-selector" id="payments-btn">Patient Record</button></div>
+    <br>
+    <!-- <button type="button" class="btn1 btn-selector" id="finance-btn">Micro-Finance</button> -->
+
+  </div>
+  <div class="form" id="sign-up-form">
+    <h2 class="form-title">Patient Registration</h2>
+    <input type="text" class="input-std" id="fid" placeholder=" Patient Id">
+    <input type="text" class="input-std" id="fname" placeholder="Patient Name">
+    <input type="text" class="input-std" id="loc" placeholder="Location">
+    <input type="text" class="input-std" id="contact" placeholder="Phone">
+    <input type="text" class="input-std" id="crop" placeholder="Symptoms Experienced">
+
+    <input type="text" class="input-std" id="quantity" placeholder="How Many days have you been sick?">
+    <input type="date" class="input-std" id="exprice" placeholder="Date of registration">
+    <button type="button" class="btn-submit" id="setvalue" onclick="set()">Submit Patient Details!</button>
+    <span id="status"></span>
+  </div>
+
+
+  <div class="form" id="log-in-form">
+    <h2 class="form-title">Patient Data Query</h2>
+
+
+    <br>
+    <table>
+      <!-- <tr><td><b><label class = "black">Farmer Id</label></td><td>:</td></b><td><span class="black" span id="getval1"></span></td></tr> -->
+      <input type="text" class="input-std" id="fid1" placeholder="Patient Id">
+
+      <tr>
+        <th><b><label class="black">Patient Name</label></th>
+        <th><b><label class="black">Location</label></th>
+        <th><b><label class="black">Symptoms Experienced</label></th>
+        <th><b><label class="black">Phone Number</label></th>
+        <th><b><label class="black">How Many days have you been sick?</label></th>
+        <th><b><label class="black">Date</label></th>
+        <!-- <th><b><label class="black">Date</label><th>
+          <th><b><label class="black">Date</label><th></th> -->
+      </tr>
+
+      <tr>
+        <td><span class="black" span id="getval2"></span></td>
+        <td><span class="black" span id="getval3"></span></td>
+        <td><span class="black" span id="getval4"></span></td>
+        <td><span class="black" span id="getval5"></span></td>
+        <td><span class="black" span id="getval6"></span></td>
+        <td><span class="black" span id="getval7"></span></td>
+      </tr>
+    </table>
+    <br>
+    <button type="button" class="btn-submit" id="getvalue" onclick="get();">Get Patient Information</button>
+
+    <br><br>
+
+    <table align="center">
+      <tr>
+        <td><button type="button" id="printBlock" class="btn btn-selector" onclick="printBlock()">Print Block</button>
+        </td>
+        <td><button type="button" id="printTransaction" class="btn btn-selector" onclick="printTransaction()">Print
+            Transaction</button></td>
+      </tr>
+    </table>
+
+    <br>
+    <h4> Block Number : <span class="blockclass" span id="blocknum"> </span></h4>
+    <br>
+    <button type="button" class="btn-submit" id="Approve-btn" align="center" font="20px">Diagnose Patient</button>
+
+
+
+    <span id="status"></span>
+
+  </div>
+
+
+  <div class="form" id="approve-form">
+    <h2 class="form-title">Patient Diagnostics</h2>
+    <input type="text" class="input-std" id="lotno" placeholder="Doctors Id">
+    <input type="text" class="input-std" id="grade" placeholder="Disease">
+    <input type="text" class="input-std" id="mrp" placeholder="Temperature">
+    <input type="text" class="input-std" id="testdate" placeholder="Test Result">
+    <input type="text" class="input-std" id="expdate" placeholder="Treatment">
+<br>
+<hr>
+    <button type="button" class="btn-submit" id="setvalue" onclick="setQ()">Submit</button>
+
+    <span id="status"></span>
+
+  </div>
+
+
+  <div class="form" id="payments-form">
+    <h2 class="form-title">Patient Medical Record</h2>
+    <table>
+      <input type="text" class="input-std" id="getfid" placeholder="Patient Id">
+      <tr>
+        <th><b><label class="black">Patient Id</label></th>
+        <th><b><label class="black">Patient Name</label></th>
+          
+        <th><b><label class="black">location</label></th>
+        <th><b><label class="black">Symptoms Experienced</label></th>
+        <th><b><label class="black">Phone</label></th>
+        <th><b><label class="black">How Many days have you been sick?</label></th>
+        <th><b><label class="black">Date?</label></th>
+      </tr>
+      <tr>
+        <td><span class="black" span id="cgetval1"></span></td>
+        <td><span class="black" span id="cgetval2"></span></td>
+        
+        
+        <td><span class="black" span id="cgetval3"></span></td>
+        <td><span class="black" span id="cgetval4"></span></td>
+        <td><span class="black" span id="cgetval5"></span></td>
+        <td><span class="black" span id="cgetval6"></span></td>
+        <td><span class="black" span id="cgetval7"></span></td>
+      </tr>
+
+    </table>
+    <br>
+    <hr>
+    <table>
+      <input type="text" class="input-std" id="lotnum" placeholder="Doctor Id">
+      <tr>
+        <th><b><label class="black">Doctors id</label></th>
+        <th><b><label class="black">Disease</label></th>
+        <th><b><label class="black">Temperature</label></th>
+        <th><b><label class="black">Test Result</label></th>
+        <th><b><label class="black">Treatment</label></th>
+      </tr>
+      <tr>
+        <td><span class="black" span id="cgetval8"></span></td>
+        <td><span class="black" span id="cgetval9"></span></td>
+        <td><span class="black" span id="cgetval10"></span></td>
+        <td><span class="black" span id="cgetval11"></span></td>
+        <td><span class="black" span id="cgetval12"></span></td>
+      </tr>
+
+    </table>
+    <button type="button" class="btn-submit" id="getcustval" onclick="getQ();cgetQ();">Get Record</button>
+  </div>
+
+  <div class="form" id="finance-form">
+    <h2 class="form-title">Micro-Finance</h2>
+
+
+    <input type="text" class="input-std" id="pfid" placeholder="Farmer Id">
+    <input type="text" class="input-std" id="lotnum" placeholder="Lot Number">
+    <input type="text" class="input-std" id="amount" placeholder="Fund Amount">
+    <table>
+      <tr>
+        <td><b><label class="black">Balance</label></td>
+        <td>:</td></b>
+        <td><span class="black"><span class="black" span id="balance"></span>$</span></td>
+      </tr>
+
+    </table>
+    <button type="button" class="btn-submit" id="getfund" onclick="fund()">Fund Farmer</button>
+
+    <span id="status"></span>
+  </div>
+
+
+
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+
+</body>
+
+</html>
